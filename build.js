@@ -116,6 +116,15 @@ ${content}
 </html>`;
 }
 
+function homeListItem(post) {
+  const dateStr = formatDate(post.data.date);
+  return `    <section class="home-list-item">
+      <a href="/posts/${post.data.slug}/">${post.data.title}</a>
+      <time datetime="${post.data.date}">${dateStr}</time>
+    </section>
+    <hr>`;
+}
+
 function postListItem(post) {
   const dateStr = formatDate(post.data.date);
   const desc    = post.data.description ? `<div class="description">${post.data.description}</div>` : '';
@@ -129,7 +138,7 @@ function postListItem(post) {
 }
 
 function homePage(posts) {
-  const items = posts.map(postListItem).join('\n');
+  const items = posts.map(homeListItem).join('\n');
   return baseTemplate({
     title: '',
     content: `    <div class="post-list">\n${items}\n    </div>`,

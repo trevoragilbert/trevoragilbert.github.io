@@ -107,7 +107,34 @@ h6::before { color: var(--maincolor); content: '###### '; }
   letter-spacing: -0.5px;
 }
 
-/* ── List page ── */
+/* ── Homepage list ── */
+
+.home-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5em;
+  padding: 0.25em 0;
+}
+
+.home-list-item a {
+  border-bottom: none;
+  font-size: 1.05em;
+}
+
+.home-list-item a:hover {
+  background-color: var(--hovercolor);
+  color: #fff;
+}
+
+.home-list-item time {
+  color: grey;
+  font-weight: 300;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── All-posts list page ── */
 
 .list-item {
   margin-bottom: 1em;
