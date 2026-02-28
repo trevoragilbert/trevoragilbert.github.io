@@ -9,7 +9,6 @@
 :root {
   --maincolor:     #8DC863;
   --bordercl:      #74A551;
-  --hovercolor:    #CDE4BD;
   --textcolor:     #222E36;
 }
 
@@ -52,8 +51,7 @@ a {
 }
 
 a:hover {
-  background-color: var(--hovercolor);
-  color: #fff;
+  color: var(--maincolor);
 }
 
 /* ── Header ── */
@@ -117,6 +115,12 @@ h6::before { color: var(--maincolor); content: '###### '; }
   margin-top: 0;
 }
 
+/* ── Writings heading ── */
+
+.writings-heading {
+  margin-bottom: 0.75em;
+}
+
 /* ── Homepage list ── */
 
 .home-list-item {
@@ -133,8 +137,7 @@ h6::before { color: var(--maincolor); content: '###### '; }
 }
 
 .home-list-item a:hover {
-  background-color: var(--hovercolor);
-  color: #fff;
+  color: var(--maincolor);
 }
 
 .home-list-item time {
@@ -161,8 +164,7 @@ h6::before { color: var(--maincolor); content: '###### '; }
 }
 
 .list-item h1 a:hover {
-  background-color: var(--hovercolor);
-  color: #fff;
+  color: var(--maincolor);
 }
 
 .list-item time {
@@ -279,7 +281,6 @@ footer {
 }
 
 .soc:hover {
-  background-color: transparent;
   color: var(--maincolor);
 }
 
