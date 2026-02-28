@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>@trevoragilbert</title>
+    <link>https://trevoragilbert.com</link>
+    <description>Personal blog — Trevor Gilbert</description>
+    <language>en-us</language>
+        <item>
+      <title><![CDATA[Stop Offering Me Amazon Gift Cards]]></title>
+      <link>https://trevoragilbert.com/posts/stop-offering-me-amazon-gift-cards/</link>
+      <guid>https://trevoragilbert.com/posts/stop-offering-me-amazon-gift-cards/</guid>
+      <pubDate>Wed, 17 Jul 2024 07:00:00 GMT</pubDate>
+      <description><![CDATA[Offering personal payments to influence purchasing decisions for your employer is unethical, and everyone should stop doing it.]]></description>
+      <content:encoded><![CDATA[<p>I recently started a new role. Evidently, part of the initiation is receiving a flood of unsolicited emails from SaaS companies looking to sell me their latest-and-greatest. To my surprise, it&#39;s now the norm to offer to pay me personally &quot;just to hop on the phone&quot;. I&#39;ve received multiple emails from companies (the two that I was able to find quickly in my inbox were from Galactic Fed and Premier Soft) telling me why I should sign my employer up for their services. They then promise that if I get on the phone with them they&#39;ll send me a $50-100 Amazon gift card.</p>
+<p>My response to them is also the point of this blog post:</p>
+<p><em>&quot;It&#39;s unethical to offer to pay me personally as a way to influence purchasing decisions on behalf of my employer. Do better.&quot;</em></p>
+<p>There are three problems with this approach to sales:</p>
+<ol>
+<li><strong>It&#39;s unethical.</strong> This seems to be the low-stakes SaaS version of pharmaceutical reps paying for doctors to go on vacation. But ethics aren&#39;t dependent on how life saving something is. Regardless of the stakes, it&#39;s unethical to pay someone privately while they&#39;re representing their employer or are being trusted to be impartial. Even if it&#39;s as small as $50, it&#39;s a conflict of interest.</li>
+<li><strong>It will blow up on you.</strong> If you have someone accept it and then their employer finds out, good luck closing that deal!</li>
+<li><strong>It makes you look bad.</strong> If I&#39;ve never heard of you before, my first impression is that you are desperate. It&#39;s a bad look.</li>
+</ol>
+<p>I&#39;ll admit, there are some grey areas. For example, if you&#39;re sending this to someone that owns the company outright then there wouldn&#39;t be an inherent conflict of interest. But, by and large, this is ethically wrong and everyone should stop doing this.</p>
+<p>While we&#39;re here, also feel free to stop cold pitching me. That&#39;s not ethics advice, that&#39;s just a plea to save my inbox.</p>
+<p><strong>Updated List</strong> (companies that sent these offers):</p>
+<ul>
+<li>Galactic Fed, 07/12/24</li>
+<li>Premier Soft, 07/17/24</li>
+<li>NetSpring, 09/10/24</li>
+</ul>
+<p><em>Footnotes: Gift cards as an incentive aren&#39;t always bad — it&#39;s when they&#39;re confusing your personal vs. professional roles. For example, a gift card for a personal G2 review or research initiative has no conflict.</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[RFS: A Call for Software Handyman]]></title>
+      <link>https://trevoragilbert.com/posts/the-need-for-software-handyman/</link>
+      <guid>https://trevoragilbert.com/posts/the-need-for-software-handyman/</guid>
+      <pubDate>Sun, 18 Feb 2024 08:00:00 GMT</pubDate>
+      <description><![CDATA[Wouldn't it be great if you could call a software handyman to do the small jobs — someone who knows enough to be helpful but knows their limits?]]></description>
+      <content:encoded><![CDATA[<p>Living in a house that&#39;s in need of repairs and upgrades over the last few years has presented me with a wealth of learning opportunities. Just in the last year I&#39;ve had to: repair our dishwasher, fix a leaky washing machine, rewire our dryer to work with our electric system, replace some doors, install new walls, and a thousand other smaller fixes along the way.</p>
+<p>Fortunately, I&#39;m quite handy and for the things I don&#39;t already know how to do, I&#39;m able to YouTube-tutorial my way to success. Many of my fellow homeowners aren&#39;t though and they use a solution that <em>should</em> have a parallel in software development.</p>
+<p>That solution is to call a handyman. They know someone who is familiar with how things are done, can come in over an afternoon, look at how stuff is set up, and get it working in the way the owner wants.</p>
+<p>My question is: wouldn&#39;t it be great if this was possible with software?</p>
+<p>Now, before everyone gets upset with my trivializing software development what I&#39;m not saying is that we should just have all software development done part time. Like in buildings there are hundreds of thousands of people who are fully dedicated to developing systems, tools, parts, building codes, and processes. These are all essential for the handyman to work on top of. There&#39;s no real replacement for having a dedicated team of highly invested and capable engineers building things.</p>
+<p>However, it seems like there&#39;s plenty of adjustments that should be able to be made without having the most highly educated (and paid) engineer in the world come in and make the change.</p>
+<p>What I imagine is that there would be a certain class of software handyman available for the odd jobs. To keep with the housing analogy, there would be people who know how to wire a light switch but aren&#39;t electricians. They can fix a leaky faucet but aren&#39;t a plumber. They can unstick a broken flue but aren&#39;t chimney smiths. In the original sense, they are jacks of all trades and masters of none. They can get things done but also know when something is beyond them.</p>
+<p>One of the key distinctions here is that these are people who are not trying to build a big business or brand. They don&#39;t have employees, they work mostly in cash, and bill hourly. They are fundamentally different than, say, getting 5 quotes from different roofing companies before having a team show up to take on a major project.</p>
+<p>Wouldn&#39;t it be wonderful if this existed as a category in software development? We have things close to it for fractional, contract developers through systems like Gun.io, Toptal, etc. But as far as I&#39;m aware, there&#39;s not something out there that connects you with a regular handyman who can just pop in and accomplish tasks for you.</p>
+<p>The difficulty as I see it is that so much software is extremely customized. But for common tech stacks — Supabase/React, for example — there should be a class of person who is known to just be able to jump in and take on some tasks without spending weeks onboarding.</p>
+<p>If such a thing exists, please let me know! And if it doesn&#39;t, would you consider facilitating it?</p>
+<p><em>Footnote: There are also plenty of things I don&#39;t do. We needed to get the connection from our electrical panel to the street upgraded so we could install a low-temperature heat pump. You better believe I did neither of those things!</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Why did software design get boring?]]></title>
+      <link>https://trevoragilbert.com/posts/skeuomorphism-and-scale/</link>
+      <guid>https://trevoragilbert.com/posts/skeuomorphism-and-scale/</guid>
+      <pubDate>Thu, 18 Jan 2024 08:00:00 GMT</pubDate>
+      <description><![CDATA[An overcorrection from skeuomorphism plus a relentless drive to scale has made nearly all software look and feel the same.]]></description>
+      <content:encoded><![CDATA[<p>We inhabit an era dominated by monotonous digital interfaces. While not literally identical, contemporary software experiences create a sensation of uniformity. Examining historical snapshots from 2005 via the Wayback Machine reveals distinctly differentiated websites with unique visual identities.</p>
+<p>In contrast, navigating multiple modern sites feels like traversing identical retail environments with merely different inventory. Why has this shift occurred compared to a decade prior?</p>
+<p>I think the answer comes down to two things:</p>
+<ol>
+<li>An excessive reaction against meaningless skeuomorphism, and</li>
+<li>A relentless pursuit of scaling at any cost permeating the technology sector.</li>
+</ol>
+<h2>The Problem of Decorative Skeuomorphism</h2>
+<p>To think about design problems clearly, I find it useful to organize things into three buckets: <strong>Culture</strong> (user assumptions), <strong>Element</strong> (enabled activities), and <strong>Form</strong> (display methodology).</p>
+<p>Logic Pro&#39;s bass adjustment feature exemplifies superior design — the physical slider form naturally emerges from professional audio culture without obscuring functionality.</p>
+<p><img src="/images/logic-pro-example.png" alt="Logic Pro bass adjustment slider example"></p>
+<p>Pre-iOS 7 Notes applications presented a contrasting example. Header decorations included pixelated torn-paper effects mimicking physical legal pads. While technically accomplished, this ornamental skeuomorphism confused users about actual functionality without clarifying purpose.</p>
+<p><img src="/images/notes-example.png" alt="Pre-iOS 7 Notes app with torn-paper skeuomorphic header"></p>
+<p>By 2012, widespread frustration with decorative iOS elements prompted celebrated pushback. iOS 7&#39;s introduction established a decisive pivot: flat design replaced ornamental embellishment, crisp geometry supplanted simulated textures.</p>
+<p>This was the right call. The ornamental skeuomorphism was bad. But the pendulum swung too far.</p>
+<h2>Scale-at-All-Costs Economics</h2>
+<p>The 2010s witnessed venture capital saturation driving massive funding rounds and astronomical valuations. This investment thesis inherently pressured companies toward unicorn trajectories, transforming potential lifestyle businesses into growth-obsessed ventures.</p>
+<p>This economic reality fundamentally altered software culture assumptions. While iOS 7 successfully reset Element and Form priorities, venture incentives reshaped Culture parameters entirely.</p>
+<p>Geographic design preferences vary significantly — Americans favor yellow legal pads, Japanese users prefer distinctive Mnemosyne notebooks, Germans utilize Hahnemühle&#39;s Iconic options. Culturally-responsive design typically adapts form according to local preferences while maintaining consistent elements.</p>
+<p>Scaling mandates presume North American markets minimum, with ultimate global dominion. Billion-dollar exit requirements demand worldwide addressable markets, flattening diverse cultural contexts into singular mono-cultures. Without distinct cultural inputs, design outputs necessarily converge.</p>
+<h2>The Contemporary Result</h2>
+<p>Design corrections from skeuomorphism combined with universal-audience assumptions produce inevitable consequences: everything appears aesthetically similar despite functional differences. Websites share restricted color palettes deemed universally acceptable. Functionally dissimilar applications feel interchangeable. Extended platform usage confirms this homogenization.</p>
+<p>This convergence creates widespread design boredom.</p>
+<h2>Notable Counterexamples</h2>
+<p>Exceptions exist — Playdate and Orion demonstrate technological applications embracing distinctive charm. Presumably, these creators avoid pursuing billion-dollar valuations.</p>
+<p>This pattern suggests future innovation emerges from teams unconcerned with universal popularity, willing to embrace opinionated decisions that alienate certain audiences, operating within specialized market segments. Those seeking compelling design should explore niche-vertical teams deliberately disregarding mass-market aspirations.</p>
+<p><em>I&#39;m not a designer and would love to hear what you think. Reach out via email.</em></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[A Love Letter to Tinkerable Software]]></title>
+      <link>https://trevoragilbert.com/posts/a-love-letter-tinkerable-software/</link>
+      <guid>https://trevoragilbert.com/posts/a-love-letter-tinkerable-software/</guid>
+      <pubDate>Thu, 11 Jan 2024 08:00:00 GMT</pubDate>
+      <description><![CDATA[We lose something important when software doesn't let us explore. A reflection on learning by doing — and the guardrails that prevent it.]]></description>
+      <content:encoded><![CDATA[<p>When I was a kid there weren&#39;t any technical limits on what I could get our computer to do. There were parental limits, common sense, and skill limits — but the computer that sat in our living room let me do whatever I wanted. That included everything from being able to use the OS to delete the OS (that&#39;s how I learned what hidden files were) to the freedom of sliding open the side of the box to unplug things (that&#39;s how I learned that you shouldn&#39;t unplug cards while the computer is running just to see what they do). There are plenty of reasons to have guardrails on these things — trust and safety, users are dumb, etc. — but we also lose something in a world with too many guardrails: learning by tinkering.</p>
+<p>When I tinkered with technology as a kid, I was learning how computers work. I wasn&#39;t learning from classes or books, I was learning by flipping a switch and seeing what happened. Or, I was learning by wanting the computer to do something, <em>knowing</em> it was able to do it, and then browsing the depth of 1996 forums until I found something that did it.</p>
+<p>How did I learn about basic networking? It wasn&#39;t by some Khan Academy course someone put together to teach people how data moved over cables, the basics of packet switching, and the history of TCP/IP. No, it was because we had two computers, both of them had Age of Empires on them, and I wanted to play against my brother. So, I needed to figure out how LAN works, how to configure a network card, what a firewall was, etc. (Shoutout to my sister who I also &quot;played against.&quot;)</p>
+<p>How did I learn about cloud storage? Well, I wanted to get a copy of Photoshop but I was probably ~8 so I obviously didn&#39;t have the money to buy a copy of it. Upset that I wasn&#39;t going to be able to edit whatever image I was working on, I moved on to some other corner of the web. There, I learned about this thing called FTP. I learned that <code>http:</code> did one thing and <code>ftp:</code> did something else. So, fresh with this knowledge and still upset that I didn&#39;t have Photoshop, I experimentally put in <code>ftp://www.adobe.com</code>. To my astonishment, there was a list of all of the most recent releases of Adobe&#39;s software. I was able to queue up a download of Photoshop and I was off to the proverbial races with our 56 kbit/s dial-up speeds. Along the way I learned about file trees, how to store files online, and also the thrill of finding something that wasn&#39;t public knowledge. (Yes, I just checked and this doesn&#39;t do anything anymore.)</p>
+<p>How did I learn to make websites? Using my incredible skills highlighted above, I booted up Frontpage on our family desktop and started to poke around. It was a tool that made things easier for the user, but it didn&#39;t lose the ability to get into the code and try out different things. I was able to bold something using the editor and then click over to the code and see that it did it using <code>&lt;b&gt;</code>. I was able to see what was happening and learn how to do it without guardrails. Was it great? No! It was terrible, the websites looked awful. But I did learn how websites worked.</p>
+<p>What do all of these things have in common with each other? They were tinkering neutral. They weren&#39;t designed from the ground-up to have people tinkering in them. But they also didn&#39;t discourage tinkering. They tried to make things as easy on the user as possible, but they also recognized that the software designer is never going to be able to account for every conceivable edge case or user need. Whether the designers were self-consciously neutral or just didn&#39;t care to lock it down, there weren&#39;t locks on everything. And when you&#39;re just starting to learn, a closed-but-unlocked door is an invitation to explore.</p>
+<p>That&#39;s sadly less the case nowadays. There&#39;s a certain pride of &quot;I know what needs to be built and everything else will be locked down&quot; in today&#39;s software. Some of that comes from valid security, trust, safety, and privacy concerns. But much of it is unnecessary. It&#39;s in those unnecessary constraints that we losing the freedom to explore.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title><![CDATA[Focusing on the Wrong Thing (Or, Optimizing for the Local Maximum)]]></title>
+      <link>https://trevoragilbert.com/posts/focusing-on-the-wrong-thing-lendingtree/</link>
+      <guid>https://trevoragilbert.com/posts/focusing-on-the-wrong-thing-lendingtree/</guid>
+      <pubDate>Mon, 18 Dec 2023 08:00:00 GMT</pubDate>
+      <description><![CDATA[A story about optimizing LendingTree lead purchases at a mortgage startup — and why local optimization can be a trap.]]></description>
+      <content:encoded><![CDATA[<p>Back when I worked for a mortgage startup we had a peculiar growth mandate that came with a number of constraints. These made sense at the time (we weren&#39;t profitable, we weren&#39;t trying to scale yet, and we were still figuring out our internal operations), but which also lead to more cautionary lessons in how <em>not</em> to scale a startup than in how to do it well.</p>
+<p>When it came to bringing in new leads in a highly competitive market, we had three main curbs to keep in mind:</p>
+<ol>
+<li><p><strong>Be Creative:</strong> We were competing with a ton of other companies in the same space with multiples of our funding. This was right around when Brexit happened and caused historically-low mortgage rates to go even lower. There was a competitive frenzy and we had to be very selective in how we picked our growth battles.</p>
+</li>
+<li><p><strong>Be Scrappy:</strong> Our competition covered the spectrum from giants like Wells Fargo to well-funded startups like Better to the entire world of small town banks that did a couple of refinances a month. We would never have the same funding as the bigger players and it would take years to build a recognizable brand. So, we had to figure out where the edge cases were that we could exploit.</p>
+</li>
+<li><p><strong>Control Any Success:</strong> One of the biggest constraints was that we couldn&#39;t bring in too much business at once. Because each piece of potential business needed a ton of hand-holding from Sales, Compliance, Operations, Secondary, etc. we couldn&#39;t just open the floodgates to any-and-all business. So while we were tasked with profitable growth, we needed to be able to selectively stop that growth.</p>
+</li>
+</ol>
+<p>These constraints led us to a mix of channels that was dominated by lead purchases from LendingTree. For awhile, I was tasked with making sure we got the most out of them.</p>
+<h2>How LendingTree Worked</h2>
+<p>From a 10,000ft level, the way LendingTree works is that consumers search for something like &quot;mortgage refinance,&quot; LendingTree directs all of their ad traffic from those terms to a very efficient landing page where they collect data on what the consumer is looking for, and then LendingTree &quot;matches&quot; that consumer to a partner finance firm. That matching is really just an auction of loan providers where they tell LendingTree how many leads they want, how much they&#39;re willing to pay, and key characteristics they want those leads to have. The consumer&#39;s information is then sold to 4-6 companies who then — typically — spam them via phone, email, and text.</p>
+<p>Unfortunately, for a company working with LendingTree the process worked by emailing Excel templates back-and-forth with our account manager. In such a manual system there aren&#39;t many levers for optimization. What we did have though were the following criteria: zip code, loan amount, loan-to-value (LTV), credit score, bankruptcy/foreclosure data, home type, and whether they&#39;ve been in the military.</p>
+<p>For those that haven&#39;t worked in the mortgage industry you may be thinking, &quot;ah, I&#39;d go for the leads that have the best credit score in the most well-off zip codes.&quot; Congratulations! You just reinvented redlining. Which brings us to the last constraint: don&#39;t break the law. Which is generally speaking always a constraint, but in the context of the mortgage industry is sometimes challenging to know whether you&#39;re abiding by it so there&#39;s typically an overabundance of caution.</p>
+<h2>Optimizing What Shouldn&#39;t Be Optimized</h2>
+<p>As a reminder: we needed to grow in a controlled way, we needed to be creative without risk, and we needed to optimize without breaking the law.</p>
+<p>What I ended up doing was building a maximum profitability calculator on my laptop. The way it worked is that once a week I&#39;d run a script that took our recent closed leads with their attributes, see how much money we made off of each one, and calculated the expected value of similar leads with the same characteristics. (We couldn&#39;t be too specific without crossing into questionable territory, so we did it in tranches instead.) We&#39;d end up with results like:</p>
+<pre><code>Loan Amount |  LTV |  Maximum Price
+------------+------+---------------
+$200-350    |  40  |  $40
+$200-350    |  70  |  $70
+$350-450    |  40  |  $45
+$350-450    |  70  |  $40
+$450-550    |  40  |  $60
+$450-550    |  70  |  $50
+$550-660    |  40  |  $70
+$550-660    |  70  |  $75
+$660+       |  40  |  $45
+$660+       |  70  |  $65
+...         |  ... |  ...
+</code></pre>
+<p>It was an exciting find! (In reality, the results were more detailed, but this was ~10 years ago and I don&#39;t have the script anymore.) Contrary to common expectation it wasn&#39;t a linear function based on loan value and credit score. Rather, because different categories were competitive for different reasons we were able to compete at seemingly random tranches more effectively than other lead buyers.</p>
+<p>This was touted as a win because we were now optimizing one of our main lead channels more effectively. It was also pretty satisfying to just build something like this myself, scratching an itch for building software I didn&#39;t know I had at the time.</p>
+<p>The downside, though, was a way of thinking that is all too common at startups. That if we take our current approach and just become much more efficient at it, we&#39;ll win. It&#39;s all too common for that mindset to turn into local optimizations that never lead to leveling up. And before you know it, you&#39;ve burned through your runway and are asking yourself the question, &quot;why didn&#39;t we spend our time and resources on a grander bet?&quot;</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

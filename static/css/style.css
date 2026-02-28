@@ -1,0 +1,275 @@
+/* ============================================================
+   trevoragilbert.com — custom CSS
+   Design: minimal markdown/terminal aesthetic
+   Primary accent: #8DC863 (sage green)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --maincolor:     #8DC863;
+  --bordercl:      #74A551;
+  --hovercolor:    #CDE4BD;
+  --textcolor:     #222E36;
+}
+
+/* ── Base ── */
+
+::selection {
+  background: var(--maincolor);
+  color: #fff;
+}
+
+html {
+  color: var(--textcolor);
+  font-family: 'Bitter', arial, serif;
+  font-size: 15px;
+  line-height: 1.6em;
+}
+
+body {
+  display: block;
+  margin: 8px;
+}
+
+/* ── Content container ── */
+
+.content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4em;
+  padding: 0 1ch;
+  word-wrap: break-word;
+}
+
+/* ── Links ── */
+
+a {
+  border-bottom: 3px solid var(--maincolor);
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: var(--hovercolor);
+  color: #fff;
+}
+
+/* ── Header ── */
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1em 0;
+  line-height: 2.5em;
+}
+
+header .main {
+  font-size: 1.5rem;
+}
+
+header .main a {
+  border-bottom: none;
+}
+
+nav a {
+  margin-left: 1em;
+}
+
+/* ── Headings ── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.2rem;
+  margin-top: 2em;
+}
+
+h1::before { color: var(--maincolor); content: '# '; }
+h2::before { color: var(--maincolor); content: '## '; }
+h3::before { color: var(--maincolor); content: '### '; }
+h4::before { color: var(--maincolor); content: '#### '; }
+h5::before { color: var(--maincolor); content: '##### '; }
+h6::before { color: var(--maincolor); content: '###### '; }
+
+/* ── Post title block (article pages) ── */
+
+.post-title {
+  margin-bottom: 1em;
+}
+
+.post-title h1 {
+  margin-top: 0;
+}
+
+.meta {
+  color: #999;
+  letter-spacing: -0.5px;
+}
+
+/* ── List page ── */
+
+.list-item {
+  margin-bottom: 1em;
+}
+
+.list-item h1 {
+  margin-top: 0;
+  margin-bottom: 0.15em;
+}
+
+.list-item h1 a {
+  border-bottom: none;
+}
+
+.list-item h1 a:hover {
+  background-color: var(--hovercolor);
+  color: #fff;
+}
+
+.list-item time {
+  color: grey;
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+.list-item .description {
+  margin-bottom: 0.5em;
+}
+
+.readmore {
+  font-size: 0.95em;
+}
+
+/* ── Horizontal rules ── */
+
+hr {
+  border: 0;
+  border-top: 3px dotted var(--bordercl);
+  margin: 1.5em 0;
+}
+
+/* ── Paragraphs ── */
+
+p {
+  font-family: 'Bitter', arial, serif;
+  line-height: 1.5;
+}
+
+/* ── Blockquotes ── */
+
+blockquote {
+  border-left: 3px solid var(--bordercl);
+  color: #737373;
+  margin: 0;
+  padding-left: 1em;
+}
+
+/* ── Images ── */
+
+img {
+  border: 3px solid #ececec;
+  max-width: 100%;
+}
+
+figure {
+  display: inline-block;
+  margin: 0;
+  max-width: 100%;
+}
+
+figure img {
+  max-height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+  figure {
+    padding: 0 40px;
+  }
+}
+
+/* ── Code ── */
+
+code {
+  background-color: #f1f1f1;
+  padding: 0.1em 0.2em;
+}
+
+pre {
+  background-color: #ececec;
+  line-height: 1.4;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ── Lists ── */
+
+ul {
+  list-style: none;
+  padding-left: 2ch;
+}
+
+ul li {
+  text-indent: -2ch;
+}
+
+ul > li::before {
+  content: '* ';
+  font-weight: bold;
+}
+
+/* ── Footer ── */
+
+footer {
+  display: flex;
+  align-items: center;
+  border-top: 0.4rem dotted var(--bordercl);
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.soc {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  margin-right: 0.75rem;
+}
+
+.soc:hover {
+  background-color: transparent;
+  color: var(--maincolor);
+}
+
+.footer-info {
+  color: #666;
+  font-size: 0.9em;
+}
+
+svg {
+  max-height: 15px;
+}
+
+/* ── All-articles page heading ── */
+
+.page-heading {
+  margin-top: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+  nav {
+    margin-top: 0;
+  }
+  nav a:first-child {
+    margin-left: 0;
+  }
+}
