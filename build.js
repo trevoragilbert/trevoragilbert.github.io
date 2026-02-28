@@ -141,10 +141,10 @@ function postListItem(post) {
 }
 
 const BIO = `    <div class="bio">
-        <p>I spend my time in Product and Growth at tech companies so more people can use splendid products. I've done that He's done that at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff, and SurveyMonkey. He's also contracted with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
-        <p>I've also spent years creating <a href="https://www.historyofpolandpodcast.com">The History of Poland Podcast</a>, which is currently on an indefinite hiatus.</p>
-        <p>When I'm not working, I like spending time with my family, reading, fixing up the house, gardening, woodworking. He does all of this from beautiful, sunny Portland, Oregon.</p>
-        <p>If you'd like to get in touch with Trevor you can reach him via email at trevoragilbert [at] gmail [dot] com.</p>
+        <p>I spend my time in Product and Growth at tech companies so more people can use splendid products. I've done that at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff, and SurveyMonkey. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
+        <p>Outside tech, I've spent years creating <a href="https://www.historyofpolandpodcast.com">The History of Poland Podcast</a>, which is currently on an indefinite hiatus.</p>
+        <p>When I'm not working, I like spending time with my family, reading, fixing up the house, gardening, woodworking. I do all of this from beautiful, sunny Portland, Oregon.</p>
+        <p>If you'd like to get in touch with me you can reach me at trevoragilbert [at] gmail [dot] com.</p>
     </div>`;
 
 function homePage(posts) {
