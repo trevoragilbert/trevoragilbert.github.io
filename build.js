@@ -84,10 +84,6 @@ function baseTemplate({ title, content, canonical = '' }) {
     <div class="main">
       <a href="/">${SITE_TITLE}</a>
     </div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-    </nav>
   </header>
   <main>
 ${content}
@@ -135,11 +131,18 @@ function postListItem(post) {
     <hr>`;
 }
 
+const BIO = `    <div class="bio">
+      <p>Trevor spends his time working with tech companies to help them build and scale interesting products. He's done that in Product and Growth roles at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, and Hubstaff. He's also contracted with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
+      <p>Trevor also spent a number of years creating The History of Poland Podcast. This was before everyone had a podcast, so it was more fun then. He's been on hiatus for awhile, but to make sure you don't miss out on a breaking update from mid-16th century Poland, subscribe in the normal places.</p>
+      <p>When he's not working, Trevor likes to spend time with his family, reading, fixing up his house, gardening, woodworking. He does all of this from beautiful, sunny Portland, Oregon.</p>
+      <p>If you'd like to get in touch with Trevor you can reach him via email at trevoragilbert [at] gmail [dot] com.</p>
+    </div>`;
+
 function homePage(posts) {
   const items = posts.map(homeListItem).join('\n');
   return baseTemplate({
     title: '',
-    content: `    <div class="post-list">\n${items}\n    </div>`,
+    content: `${BIO}\n    <div class="post-list">\n${items}\n    </div>`,
   });
 }
 
@@ -255,13 +258,7 @@ function build() {
   console.log('\nGenerating homepage...');
   write(path.join(OUT_DIR, 'index.html'), homePage(posts));
 
-  // 5. Generate about page
-  console.log('\nGenerating /about page...');
-  const aboutRaw  = fs.readFileSync(path.join(CONTENT_DIR, 'about.md'), 'utf8');
-  const aboutData = matter(aboutRaw);
-  write(path.join(OUT_DIR, 'about', 'index.html'), aboutPage(aboutData));
-
-  // 7. Generate RSS feed
+  // 5. Generate RSS feed
   console.log('\nGenerating RSS feed...');
   write(path.join(OUT_DIR, 'feed.xml'), rssFeed(posts));
 

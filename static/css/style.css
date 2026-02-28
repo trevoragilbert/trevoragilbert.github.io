@@ -107,6 +107,16 @@ h6::before { color: var(--maincolor); content: '###### '; }
   letter-spacing: -0.5px;
 }
 
+/* ── Homepage bio ── */
+
+.bio {
+  margin-bottom: 2.5em;
+}
+
+.bio p {
+  margin-top: 0;
+}
+
 /* ── Homepage list ── */
 
 .home-list-item {
