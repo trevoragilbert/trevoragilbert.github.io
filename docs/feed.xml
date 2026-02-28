@@ -57,33 +57,48 @@
       <guid>https://trevoragilbert.com/posts/skeuomorphism-and-scale/</guid>
       <pubDate>Thu, 18 Jan 2024 08:00:00 GMT</pubDate>
       <description><![CDATA[An overcorrection from skeuomorphism plus a relentless drive to scale has made nearly all software look and feel the same.]]></description>
-      <content:encoded><![CDATA[<p>We inhabit an era dominated by monotonous digital interfaces. While not literally identical, contemporary software experiences create a sensation of uniformity. Examining historical snapshots from 2005 via the Wayback Machine reveals distinctly differentiated websites with unique visual identities.</p>
-<p>In contrast, navigating multiple modern sites feels like traversing identical retail environments with merely different inventory. Why has this shift occurred compared to a decade prior?</p>
-<p>I think the answer comes down to two things:</p>
+      <content:encoded><![CDATA[<p>We live in a world of monotone software. It <em>isn&#39;t</em> all the same, but it sure does feel that way. Go look at the Wayback Machine for, say, 2005. Different websites felt different.</p>
+<p>Today, though, you can jump between a dozen different sites and feel like you&#39;re wandering different aisles in the same grocery store. The inventory might be different, but there&#39;s no change in how they make you feel. Why is that the case now when it wasn&#39;t the case a decade ago?</p>
+<p>It&#39;s my position that it&#39;s due to:</p>
 <ol>
-<li>An excessive reaction against meaningless skeuomorphism, and</li>
-<li>A relentless pursuit of scaling at any cost permeating the technology sector.</li>
+<li>An over-correction away from meaningless skeuomorphism, and</li>
+<li>A scale-at-all-costs mentality that has saturated the software world.</li>
 </ol>
-<h2>The Problem of Decorative Skeuomorphism</h2>
-<p>To think about design problems clearly, I find it useful to organize things into three buckets: <strong>Culture</strong> (user assumptions), <strong>Element</strong> (enabled activities), and <strong>Form</strong> (display methodology).</p>
-<p>Logic Pro&#39;s bass adjustment feature exemplifies superior design — the physical slider form naturally emerges from professional audio culture without obscuring functionality.</p>
-<p><img src="/images/logic-pro-example.png" alt="Logic Pro bass adjustment slider example"></p>
-<p>Pre-iOS 7 Notes applications presented a contrasting example. Header decorations included pixelated torn-paper effects mimicking physical legal pads. While technically accomplished, this ornamental skeuomorphism confused users about actual functionality without clarifying purpose.</p>
-<p><img src="/images/notes-example.png" alt="Pre-iOS 7 Notes app with torn-paper skeuomorphic header"></p>
-<p>By 2012, widespread frustration with decorative iOS elements prompted celebrated pushback. iOS 7&#39;s introduction established a decisive pivot: flat design replaced ornamental embellishment, crisp geometry supplanted simulated textures.</p>
-<p>This was the right call. The ornamental skeuomorphism was bad. But the pendulum swung too far.</p>
-<h2>Scale-at-All-Costs Economics</h2>
-<p>The 2010s witnessed venture capital saturation driving massive funding rounds and astronomical valuations. This investment thesis inherently pressured companies toward unicorn trajectories, transforming potential lifestyle businesses into growth-obsessed ventures.</p>
-<p>This economic reality fundamentally altered software culture assumptions. While iOS 7 successfully reset Element and Form priorities, venture incentives reshaped Culture parameters entirely.</p>
-<p>Geographic design preferences vary significantly — Americans favor yellow legal pads, Japanese users prefer distinctive Mnemosyne notebooks, Germans utilize Hahnemühle&#39;s Iconic options. Culturally-responsive design typically adapts form according to local preferences while maintaining consistent elements.</p>
-<p>Scaling mandates presume North American markets minimum, with ultimate global dominion. Billion-dollar exit requirements demand worldwide addressable markets, flattening diverse cultural contexts into singular mono-cultures. Without distinct cultural inputs, design outputs necessarily converge.</p>
-<h2>The Contemporary Result</h2>
-<p>Design corrections from skeuomorphism combined with universal-audience assumptions produce inevitable consequences: everything appears aesthetically similar despite functional differences. Websites share restricted color palettes deemed universally acceptable. Functionally dissimilar applications feel interchangeable. Extended platform usage confirms this homogenization.</p>
-<p>This convergence creates widespread design boredom.</p>
-<h2>Notable Counterexamples</h2>
-<p>Exceptions exist — Playdate and Orion demonstrate technological applications embracing distinctive charm. Presumably, these creators avoid pursuing billion-dollar valuations.</p>
-<p>This pattern suggests future innovation emerges from teams unconcerned with universal popularity, willing to embrace opinionated decisions that alienate certain audiences, operating within specialized market segments. Those seeking compelling design should explore niche-vertical teams deliberately disregarding mass-market aspirations.</p>
-<p><em>I&#39;m not a designer and would love to hear what you think. Reach out via email.</em></p>
+<p>Let&#39;s dig into both of these, how they&#39;ve combined to create our current landscape, and where to look for a better future.</p>
+<h2>Meaningless Skeuomorphism</h2>
+<p>When I consider a design problem, I use a rough model in my head to organize what I&#39;m trying to create. I may not always be explicit about it, but all software features end up organized like this:</p>
+<ol>
+<li><strong>Culture</strong>: What are the assumptions you can make about the intended users?</li>
+<li><strong>Element</strong>: What is the activity you want to enable for the user?</li>
+<li><strong>Form</strong>: What is the method you&#39;ll use to display the activity?</li>
+</ol>
+<p>We have a simple and easy-to-understand example by looking at the bass-adjustment feature in Logic Pro:</p>
+<p><img src="/images/logic-pro-example.png" alt="Logic pro example"></p>
+<p>You&#39;ll notice that the culture and element could&#39;ve taken on any number of forms. A toggle, a number-input, a slider, or some other clever adaptation of a physical input. All of those would have been fine! But what makes this a first-rate design is that the form pulls directly from the culture, without obfuscating the element.</p>
+<p>For a contrasting example, let&#39;s look at the pre-iOS 7 Notes app on iPhone. In particular let&#39;s look at the header:</p>
+<p><img src="/images/notes-example.png" alt="Notes example"></p>
+<p>It&#39;s hard to see, but that little pixelated bottom-shadow is actually a simulated torn piece of paper. This is going after the effect that you have with a physical yellow legal pad when you tear a page off and part of it remains suck to the binding. To the designer&#39;s credit, they did a great job of replicating that real-world effect. But let&#39;s consider it through the model above:</p>
+<ol>
+<li><strong>Culture</strong>: People who want to take quick, locally-stored notes on their phone.</li>
+<li><strong>Element</strong>: A navigation header that will appear at the top of all notes in any state.</li>
+<li><strong>Form</strong>: Torn paper that indicates a note has been removed.</li>
+</ol>
+<p>As part of the top-level navigation header, this decoration is extremely prominent. Yet, we see a breakdown between element and form. It&#39;s a form that takes away from the element by confusing the user. Is it indicating a note has been removed? That there are a limited number of notes before you run out of space? That these notes have a fixed width and height? Nope! Just a decoration!</p>
+<p>I don&#39;t want to obsess too much over this one detail. Rather, I bring it up because by 2012 there was a growing frustration with the decorative skeuomorphism of iOS driven by features like this. As the most influential platform, the design language had (and has) a large influence on broader software design trends. So, when iOS 7 was released, it provoked a titanic correction away from meaningless skeuomorphism that <a href="https://daringfireball.net/2013/01/the_trend_against_skeuomorphism">was rightly celebrated</a>.</p>
+<p>The future was clear: decorative flourish was out, flat was in. Crisp lines replaced faux leather. A world of undiscovered beauty was ahead, waiting only to be charted by intrepid designers. It would have been beautiful if not for the economic conditions it collided with.</p>
+<h2>The Cost of Scaling</h2>
+<p>As has been discussed widely, the 2010&#39;s brought VC firms with massive funds, an incredible number of deals, and eye-popping valuations. The underlying premise was that firms just needed a couple of big wins to make their funds work, even if 99% of their portfolio went bankrupt. This inherent pressure caused niche businesses to try to adopt a model that shot for a unicorn valuation that realistically should&#39;ve just been a healthy lifestyle business.</p>
+<p>How does this tie into the evolution of software design over the last decade? By warping the intended audience of most software. We had seen a reset on Element and Form made popular by Apple&#39;s iOS 7 update. The reset of Culture was driven by VC firms.</p>
+<p>There are very few forms that are universally appropriate for the entire world. As an example, let&#39;s stick with note-taking. The yellow legal pad is popular in the United States. Yet, Japan is famous for a completely different style of notepad (I&#39;m an ardent Mnemosyne-user, personally). Meanwhile, in Germany, you have notebooks like Hahnemühle&#39;s Iconic. If you were making a notes app for any of these cultures, you&#39;d likely embrace a different form depending on what was already popular. The element (note-taking) may be static, but the form would be changed by the culture.</p>
+<p>When it comes to scale-at-all-costs, there is an inherent assumption that your audience is — at least — all of North America, and for most startups there&#39;s some long-term vision of &quot;the entire world.&quot; There aren&#39;t many paths to getting investment without promising an eventual exit in the billions, and there aren&#39;t many ways to chart that path to 10-figures without making the entire world your market. While that looks great in a pitch deck, it implicitly changes the design framework. It takes the breadth of possible cultures and flattens them into a mono-culture.</p>
+<p>The end result is unavoidable: <strong>without unique culture inputs, form outputs will converge.</strong></p>
+<p>Over the last decade we&#39;ve had a hard — but fair — correction away from skeuomorphism driven by a combination of better hardware, different taste, and bad memories of faux-leather. At the same time, we&#39;ve had a generation of companies assume that everyone is a potential customer and that a culturally-specific form has no upside.</p>
+<p>What this does is make everything feel the same even if the element is completely different. You have a world of websites that are all roughly the same few colors because they&#39;re found to be universally acceptable. You have businesses that have nothing in common with each other, but when you go to their apps they feel the same. If you spend more than a few minutes using the most popular platforms and tools you&#39;ve experienced this.</p>
+<p>To put a point on this: it&#39;s boring.</p>
+<h2>The Promising Exceptions</h2>
+<p>Yet, even as you&#39;ve been reading you&#39;ve likely thought of exceptions. And you&#39;re right! There are beautiful apps and websites that have come out that buck this trend. Two that come to mind are <a href="https://play.date">Playdate</a> and <a href="https://apps.apple.com/us/app/hdmi-monitor-orion/id6459355072">Orion</a>. They&#39;re wonderful examples of technology that embrace charm. Yet, though I don&#39;t know the creators of either, I think it&#39;s safe to assume that they aren&#39;t pursuing some billion-dollar valuation.</p>
+<p>Which I think points to where the great designs are going to come from. They&#39;re going to come from teams that aren&#39;t focused on being universally popular, that are going to make opinionated decisions <em>that they know will be unpopular with some people</em>, and they&#39;re going to be in niche verticals. Which is why if you want to explore innovative and compelling design those are the teams you&#39;ll want to gravitate towards.</p>
+<p><em>Note: I&#39;m not a designer, but I do think about it a lot. Get in touch with your own opinions! Trevoragilbert [at] gmail [dot] com.</em></p>
 ]]></content:encoded>
     </item>
     <item>
