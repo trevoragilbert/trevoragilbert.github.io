@@ -87,7 +87,6 @@ function baseTemplate({ title, content, canonical = '' }) {
     <nav>
       <a href="/">Home</a>
       <a href="/about">About</a>
-      <a href="/posts">All posts</a>
     </nav>
   </header>
   <main>
@@ -121,8 +120,7 @@ function homeListItem(post) {
   return `    <section class="home-list-item">
       <a href="/posts/${post.data.slug}/">${post.data.title}</a>
       <time datetime="${post.data.date}">${dateStr}</time>
-    </section>
-    <hr>`;
+    </section>`;
 }
 
 function postListItem(post) {
@@ -257,11 +255,7 @@ function build() {
   console.log('\nGenerating homepage...');
   write(path.join(OUT_DIR, 'index.html'), homePage(posts));
 
-  // 5. Generate all-posts page
-  console.log('\nGenerating /posts page...');
-  write(path.join(OUT_DIR, 'posts', 'index.html'), allPostsPage(posts));
-
-  // 6. Generate about page
+  // 5. Generate about page
   console.log('\nGenerating /about page...');
   const aboutRaw  = fs.readFileSync(path.join(CONTENT_DIR, 'about.md'), 'utf8');
   const aboutData = matter(aboutRaw);
