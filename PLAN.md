@@ -9,9 +9,10 @@ Static site replacing the existing Hugo blog. Plain HTML, CSS, JS output. No Jav
 - [x] Build script written (`build.js`)
 - [x] All blog post content ported to Markdown (4/5 posts — skeuomorphism post pending images)
 - [x] About page ported
-- [ ] Skeuomorphism post images downloaded (see note below)
-- [ ] GitHub repo created and pushed
-- [ ] GitHub Pages configured
+- [x] Skeuomorphism post images downloaded
+- [x] GitHub repo created: github.com/trevoragilbert/trevoragilbert.github.io
+- [x] GitHub Pages configured (GitHub Actions workflow — see .github/workflows/deploy.yml)
+- [x] Site live at: https://trevoragilbert.github.io
 
 ## Architecture
 
@@ -104,11 +105,13 @@ Faithful recreation of the original trevoragilbert.com Hugo theme:
 
 ## GitHub Pages Setup
 
-1. Repo name: `trevoragilbert.github.io` (user site -- served at root)
-2. GitHub Pages source: `main` branch, `/docs` folder
-3. Custom domain configured in repo Settings > Pages > Custom domain > `trevoragilbert.com`
-4. `docs/CNAME` file contains `trevoragilbert.com`
-5. Point DNS at GitHub Pages IPs (or CNAME for www subdomain)
+1. Repo name: `trevoragilbert.github.io` (user site)
+2. GitHub Pages source: **GitHub Actions** (`.github/workflows/deploy.yml`)
+   - On every push to `main`: installs deps, runs `node build.js`, deploys `docs/`
+3. Custom domain: set in repo Settings > Pages > Custom domain > `trevoragilbert.com`
+   - `docs/CNAME` already contains `trevoragilbert.com`
+   - Update DNS at your registrar (see below)
+4. After DNS propagates, enable "Enforce HTTPS" in Pages settings
 
 DNS settings needed at your registrar:
 ```
