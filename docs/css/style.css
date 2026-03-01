@@ -73,6 +73,22 @@ header .main a {
   border-bottom: none;
 }
 
+.breadcrumb-sep {
+  color: #aaa;
+}
+
+.breadcrumb-title {
+  font-size: 1.5rem;
+}
+
+.main a.dimmed {
+  color: #aaa;
+}
+
+.main a.dimmed:hover {
+  color: var(--maincolor);
+}
+
 nav a {
   margin-left: 1em;
 }
