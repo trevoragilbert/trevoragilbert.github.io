@@ -34,7 +34,7 @@ body {
 /* ── Content container ── */
 
 .content {
-  max-width: 800px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4em;
@@ -61,7 +61,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1em 0;
+  margin: 2.5em 0 2.5em;
   line-height: 2.5em;
 }
 
