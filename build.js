@@ -122,7 +122,7 @@ function postListItem(post) {
 }
 
 const BIO = `    <details class="about-section" open>
-      <summary><span class="about-arrow">&#9654;</span> About</summary>
+      <summary><span class="about-arrow">›</span> About</summary>
       <div class="bio">
         <p>I work in product growth helping people discover and use great software, currently at SurveyMonkey. In the past I've done it at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others. More info on this work on <a href="https://www.linkedin.com/in/trevoragilbert/">LinkedIn</a></p>
         <p>Outside tech, I've spent years creating <a href="https://www.historyofpolandpodcast.com">The History of Poland Podcast</a>, which is currently on an indefinite hiatus.</p>
@@ -135,7 +135,7 @@ function homePage(posts) {
   const items = posts.map(homeListItem).join('\n');
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">&#9654;</span> Writings</summary>\n      <div class="post-list">\n${items}\n      </div>\n    </details>`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${items}\n      </div>\n    </details>`,
   });
 }
 

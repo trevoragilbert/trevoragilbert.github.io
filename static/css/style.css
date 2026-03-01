@@ -144,7 +144,7 @@ h2, h3, h4, h5, h6 {
 .about-arrow {
   color: #999;
   display: inline-block;
-  font-size: 0.65em;
+  font-size: 0.85em;
   margin-right: 0.3em;
   transition: transform 0.15s ease;
 }
