@@ -106,20 +106,67 @@ h6::before { color: var(--maincolor); content: '###### '; }
   letter-spacing: -0.5px;
 }
 
-/* ── Homepage bio ── */
+/* ── About section (collapsible) ── */
+
+.about-section {
+  margin-bottom: 1em;
+}
+
+.about-section summary {
+  cursor: pointer;
+  font-size: 1.2rem;
+  list-style: none;
+  user-select: none;
+}
+
+.about-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-section summary::marker {
+  display: none;
+}
+
+.about-arrow {
+  color: #999;
+  display: inline-block;
+  font-size: 0.65em;
+  margin-right: 0.3em;
+  transition: transform 0.15s ease;
+}
+
+.about-section[open] .about-arrow {
+  transform: rotate(90deg);
+}
 
 .bio {
-  margin-bottom: 2.5em;
+  margin-top: 0.75em;
 }
 
 .bio p {
   margin-top: 0;
 }
 
-/* ── Writings heading ── */
+/* ── Writings section (collapsible) ── */
 
-.writings-heading {
+.writings-section summary {
+  cursor: pointer;
+  font-size: 1.2rem;
+  list-style: none;
+  user-select: none;
   margin-bottom: 0.75em;
+}
+
+.writings-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.writings-section summary::marker {
+  display: none;
+}
+
+.writings-section[open] .about-arrow {
+  transform: rotate(90deg);
 }
 
 /* ── Homepage list ── */
@@ -130,6 +177,14 @@ h6::before { color: var(--maincolor); content: '###### '; }
   align-items: baseline;
   gap: 1.5em;
   padding: 0.25em 0;
+  padding-left: 1.25em;
+  position: relative;
+}
+
+.home-list-item::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
 }
 
 .home-list-item a {

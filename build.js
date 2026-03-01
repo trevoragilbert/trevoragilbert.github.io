@@ -140,18 +140,21 @@ function postListItem(post) {
     <hr>`;
 }
 
-const BIO = `    <div class="bio">
-        <p>I work in product growth at tech companies helping people discover and use great software. I've done that at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff, and SurveyMonkey. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
+const BIO = `    <details class="about-section" open>
+      <summary><span class="about-arrow">&#9654;</span> About</summary>
+      <div class="bio">
+        <p>I work in product growth helping people discover and use great software. I've done that at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff, and SurveyMonkey. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
         <p>Outside tech, I've spent years creating <a href="https://www.historyofpolandpodcast.com">The History of Poland Podcast</a>, which is currently on an indefinite hiatus.</p>
         <p>When I'm not working, I like spending time with my family, reading, fixing up the house, gardening, woodworking. I do all of this from beautiful, sunny Portland, Oregon.</p>
         <p>If you'd like to get in touch with me you can reach me at trevoragilbert [at] gmail [dot] com.</p>
-    </div>`;
+      </div>
+    </details>`;
 
 function homePage(posts) {
   const items = posts.map(homeListItem).join('\n');
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <h2 class="writings-heading">Writings</h2>\n    <div class="post-list">\n${items}\n    </div>`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">&#9654;</span> Writings</summary>\n      <div class="post-list">\n${items}\n      </div>\n    </details>`,
   });
 }
 
