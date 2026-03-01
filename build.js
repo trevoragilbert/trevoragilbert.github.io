@@ -5,7 +5,7 @@
  * Usage:
  *   node build.js
  *
- * Reads:  content/posts/*.md, content/about.md
+ * Reads:  content/posts/*.md
  * Writes: docs/ (GitHub Pages source)
  *
  * Dependencies: gray-matter, marked (npm install)
@@ -89,28 +89,6 @@ function baseTemplate({ title, content, canonical = '' }) {
 ${content}
   </main>
   <footer>
-    <div style="display:flex;align-items:center;gap:0.75rem">
-      <a class="soc" href="https://github.com/trevoragilbert" rel="me" title="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
-                   c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
-                   5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7
-                   0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0
-                   0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
-      </a>
-      <a class="soc" href="https://www.linkedin.com/in/trevoragilbert/" rel="me" title="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-          <rect x="2" y="9" width="4" height="12"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-      </a>
-    </div>
     <div class="footer-info">
       Copyright &copy; ${new Date().getFullYear()} Trevor Gilbert
     </div>
@@ -143,7 +121,7 @@ function postListItem(post) {
 const BIO = `    <details class="about-section" open>
       <summary><span class="about-arrow">&#9654;</span> About</summary>
       <div class="bio">
-        <p>I work in product growth helping people discover and use great software. I've done that at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff, and SurveyMonkey. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
+        <p>I work in product growth helping people discover and use great software, currently at SurveyMonkey. In the past I've done it at Prismatic (acq. by LinkedIn), Clara Lending (acq. by Sofi), Right Side Up, Hubstaff. I've also enjoyed consulting with interesting companies like DoorDash, Empower, StitchFix, Calm, Dell, Microsoft, and many others.</p>
         <p>Outside tech, I've spent years creating <a href="https://www.historyofpolandpodcast.com">The History of Poland Podcast</a>, which is currently on an indefinite hiatus.</p>
         <p>When I'm not working, I like spending time with my family, reading, fixing up the house, gardening, woodworking. I do all of this from beautiful, sunny Portland, Oregon.</p>
         <p>If you'd like to get in touch with me you can reach me at trevoragilbert [at] gmail [dot] com.</p>
@@ -158,14 +136,6 @@ function homePage(posts) {
   });
 }
 
-function allPostsPage(posts) {
-  const items = posts.map(postListItem).join('\n');
-  return baseTemplate({
-    title: 'All posts',
-    content: `    <h1 class="page-heading">All articles</h1>\n${items}`,
-  });
-}
-
 function postPage(post) {
   const dateStr  = formatDate(post.data.date);
   const bodyHtml = marked(post.content);
@@ -176,24 +146,11 @@ function postPage(post) {
     content: `    <article>
       <div class="post-title">
         <h1 class="title">${post.data.title}</h1>
-        <div class="meta">Posted on ${dateStr}</div>
       </div>
       <section class="body">
         ${bodyHtml}
       </section>
-    </article>`,
-  });
-}
-
-function aboutPage(pageData) {
-  const bodyHtml = marked(pageData.content);
-  return baseTemplate({
-    title: 'About',
-    canonical: `${SITE_URL}/about/`,
-    content: `    <article>
-      <section class="body">
-        ${bodyHtml}
-      </section>
+      <div class="meta">Posted on ${dateStr}</div>
     </article>`,
   });
 }
@@ -274,10 +231,10 @@ function build() {
   console.log('\nGenerating RSS feed...');
   write(path.join(OUT_DIR, 'feed.xml'), rssFeed(posts));
 
-  // 8. Write CNAME for custom domain
+  // 6. Write CNAME for custom domain
   write(path.join(OUT_DIR, 'CNAME'), 'trevoragilbert.com');
 
-  // 9. Write .nojekyll so GitHub Pages doesn't process with Jekyll
+  // 7. Write .nojekyll so GitHub Pages doesn't process with Jekyll
   write(path.join(OUT_DIR, '.nojekyll'), '');
 
   console.log('\nDone! Output in docs/');
