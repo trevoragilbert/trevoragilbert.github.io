@@ -131,11 +131,40 @@ const BIO = `    <details class="about-section" open>
       </div>
     </details>`;
 
+function linkListItem(link) {
+  const dateStr = formatDate(link.date);
+  const commentary = link.commentary ? `\n      <p class="link-commentary">${link.commentary}</p>` : '';
+  return `    <section class="link-item">
+      <a href="${link.url}">${link.title}</a>
+      <time datetime="${link.date}">${dateStr}</time>${commentary}
+    </section>`;
+}
+
+function linksPage(links) {
+  const items = links.length
+    ? links.map(linkListItem).join('\n')
+    : '    <p class="empty-state">No links yet.</p>';
+  return baseTemplate({
+    title: 'Links of Interest',
+    canonical: `${SITE_URL}/links/`,
+    breadcrumb: 'Links of Interest',
+    content: `    <div class="links-list">\n${items}\n    </div>`,
+  });
+}
+
 function homePage(posts) {
-  const items = posts.map(homeListItem).join('\n');
+  const postItems = posts.map(homeListItem).join('\n');
+  const projects = `    <details class="projects-section" open>
+      <summary><span class="about-arrow">›</span> Projects</summary>
+      <div class="post-list">
+    <section class="home-list-item">
+      <a href="/links/">Links of Interest</a>
+    </section>
+      </div>
+    </details>`;
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${items}\n      </div>\n    </details>`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${projects}`,
   });
 }
 
@@ -224,18 +253,24 @@ function build() {
     write(path.join(OUT_DIR, 'posts', post.data.slug, 'index.html'), html);
   }
 
-  // 4. Generate homepage
+  // 4. Read links and generate links page
+  console.log('\nGenerating links page...');
+  const linksFile = path.join(CONTENT_DIR, 'links.json');
+  const links = fs.existsSync(linksFile) ? JSON.parse(fs.readFileSync(linksFile, 'utf8')) : [];
+  write(path.join(OUT_DIR, 'links', 'index.html'), linksPage(links));
+
+  // 5. Generate homepage
   console.log('\nGenerating homepage...');
   write(path.join(OUT_DIR, 'index.html'), homePage(posts));
 
-  // 5. Generate RSS feed
+  // 6. Generate RSS feed
   console.log('\nGenerating RSS feed...');
   write(path.join(OUT_DIR, 'feed.xml'), rssFeed(posts));
 
-  // 6. Write CNAME for custom domain
+  // 7. Write CNAME for custom domain
   write(path.join(OUT_DIR, 'CNAME'), 'trevoragilbert.com');
 
-  // 7. Write .nojekyll so GitHub Pages doesn't process with Jekyll
+  // 8. Write .nojekyll so GitHub Pages doesn't process with Jekyll
   write(path.join(OUT_DIR, '.nojekyll'), '');
 
   console.log('\nDone! Output in docs/');
