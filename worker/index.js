@@ -65,8 +65,15 @@ function escapeRegex(str) {
 
 // ── Main handler ────────────────────────────────────────────────────────────
 
+const ALLOWED_SENDER = 'trevoragilbert@gmail.com';
+
 export default {
   async email(message, env) {
+    if (message.from.toLowerCase() !== ALLOWED_SENDER.toLowerCase()) {
+      console.error(`Rejected email from unauthorized sender: ${message.from}`);
+      return;
+    }
+
     const rawText = await new Response(message.raw).text();
     const { subject, body } = parseRawEmail(rawText);
 
