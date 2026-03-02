@@ -21,20 +21,40 @@ No domain attribution, no auto-generated summaries.
 
 ## Ingestion
 
-Links are submitted via email. Trevor forwards or composes an email containing:
-- The URL
+Links are submitted by emailing `links@trevoragilbert.com`. Trevor sends or forwards an email with:
+- The URL (in the subject or body)
 - Optional commentary in the email body
 
-A script or service monitors the inbox, parses the URL and commentary, and commits a new entry to the repo. The GitHub Actions deploy pipeline then publishes it to the site automatically.
+**Pipeline:**
+1. **Cloudflare Email Routing** receives the email and forwards it to a Cloudflare Worker
+2. **The Worker** parses the URL and commentary, then calls the GitHub API to append a new entry to `content/links.json` and commit it
+3. **GitHub Actions** detects the commit, runs `node build.js`, and deploys the updated site to Pages
 
-The ingestion mechanism should work from any device or context where email is available (phone share sheet, desktop browser, any email client).
+End-to-end, a link should appear on the site within a minute or two of sending the email. Works from any device or email client.
+
+**Requirements:**
+- `trevoragilbert.com` DNS managed by Cloudflare
+- Cloudflare Workers (free tier)
+- GitHub personal access token stored as a Worker secret
+- ~50 lines of JavaScript for the Worker
 
 ## Data Storage
 
-Links are stored as structured data in the repo (e.g. a JSON or Markdown file under `content/`), following the existing pattern of content living in `content/` and being rendered at build time by `build.js`.
+Links are stored in `content/links.json` as an array of objects:
+
+```json
+[
+  {
+    "url": "https://example.com",
+    "title": "Page Title",
+    "commentary": "Optional note.",
+    "date": "YYYY-MM-DD"
+  }
+]
+```
+
+`build.js` reads this file at build time and renders `/links/index.html`, newest first.
 
 ## Open Questions
 
-- What email address / service to use for ingestion (dedicated Gmail alias, Cloudflare Email Routing, etc.)
-- How the inbox-monitoring script is hosted and triggered (Zapier, a small serverless function, a cron job)
 - Whether `/links/` needs pagination once volume grows
