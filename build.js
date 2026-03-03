@@ -174,7 +174,7 @@ ${linkItems}${viewAll}
     </details>`;
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Things I've Written</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${linksSection}`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> My Writings</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${linksSection}`,
   });
 }
 
