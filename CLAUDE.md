@@ -55,3 +55,9 @@ Push to `main` → GitHub Actions runs `node build.js` → deploys `docs/` to Gi
 - **`staging`** — for testing changes before they go live. Pushes here do NOT trigger deployment. Test locally with `node build.js`, then merge to `main` when ready.
 
 Workflow: make changes on `staging` → run `node build.js` → verify locally → merge to `main` → push `main` to deploy.
+
+## Toggling Homepage Sections
+
+Homepage sections (About, My Writings, Other's Writings) are rendered in `homePage()` in `build.js`. To hide a section, remove it from the `content` template string. To restore it, add it back.
+
+For example, to hide/show the Other's Writings section, find the `content:` line in `homePage()` and remove or add `\n${linksSection}` at the end. The underlying code and `/links/` page remain intact either way.
