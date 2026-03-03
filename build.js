@@ -154,7 +154,6 @@ function linksPage(links) {
 
 function homeLinkItem(link) {
   const dateStr = formatDate(link.date);
-  const domain  = (() => { try { return new URL(link.url).hostname.replace(/^www\./, ''); } catch(e) { return ''; } })();
   const label   = link.commentary || link.title;
   return `    <section class="home-link-item">
       <a href="${link.url}">${label}</a><time datetime="${link.date}">${dateStr}</time>
