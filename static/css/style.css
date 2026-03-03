@@ -205,6 +205,61 @@ h2, h3, h4, h5, h6 {
   transform: rotate(90deg);
 }
 
+/* ── Homepage links list ── */
+
+.home-links-list {
+  margin-bottom: 0.5em;
+}
+
+.home-link-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4em;
+  padding: 0.2em 0;
+}
+
+.home-link-item a {
+  border-bottom: none;
+  font-size: 1.05em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.home-link-item a:hover {
+  color: var(--maincolor);
+}
+
+.home-link-item .link-domain {
+  color: #aaa;
+  font-size: 0.88em;
+  font-weight: 300;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.home-link-item time {
+  color: #aaa;
+  font-size: 0.88em;
+  font-weight: 300;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 0.4em;
+  font-size: 0.9em;
+  border-bottom: none;
+  color: #aaa;
+}
+
+.view-all:hover {
+  color: var(--maincolor);
+}
+
 /* ── Links page ── */
 
 .links-list {

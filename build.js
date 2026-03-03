@@ -152,14 +152,24 @@ function linksPage(links) {
   });
 }
 
-function homePage(posts) {
-  const postItems = posts.map(homeListItem).join('\n');
+function homeLinkItem(link) {
+  const dateStr = formatDate(link.date);
+  const domain  = (() => { try { return new URL(link.url).hostname.replace(/^www\./, ''); } catch(e) { return ''; } })();
+  const label   = link.commentary || link.title;
+  return `    <section class="home-link-item">
+      <a href="${link.url}">${label}</a><span class="link-domain">[${domain}]</span><time datetime="${link.date}">${dateStr}</time>
+    </section>`;
+}
+
+function homePage(posts, links) {
+  const postItems  = posts.map(homeListItem).join('\n');
+  const recentLinks = links.slice(0, 6);
+  const linkItems  = recentLinks.map(homeLinkItem).join('\n');
+  const viewAll    = links.length > 6 ? `\n      <a class="view-all" href="/links/">View all</a>` : '';
   const linksSection = `    <details class="links-section" open>
       <summary><span class="about-arrow">›</span> Links of Interest</summary>
-      <div class="post-list">
-    <section class="home-list-item">
-      <a href="/links/">View all links</a>
-    </section>
+      <div class="home-links-list">
+${linkItems}${viewAll}
       </div>
     </details>`;
   return baseTemplate({
@@ -261,7 +271,7 @@ function build() {
 
   // 5. Generate homepage
   console.log('\nGenerating homepage...');
-  write(path.join(OUT_DIR, 'index.html'), homePage(posts));
+  write(path.join(OUT_DIR, 'index.html'), homePage(posts, links));
 
   // 6. Generate RSS feed
   console.log('\nGenerating RSS feed...');
