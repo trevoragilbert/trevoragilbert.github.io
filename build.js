@@ -145,9 +145,9 @@ function linksPage(links) {
     ? links.map(linkListItem).join('\n')
     : '    <p class="empty-state">No links yet.</p>';
   return baseTemplate({
-    title: 'Links of Interest',
+    title: "Other's Writings",
     canonical: `${SITE_URL}/links/`,
-    breadcrumb: 'Links of Interest',
+    breadcrumb: "Other's Writings",
     content: `    <div class="links-list">\n${items}\n    </div>`,
   });
 }
@@ -167,14 +167,14 @@ function homePage(posts, links) {
   const linkItems  = recentLinks.map(homeLinkItem).join('\n');
   const viewAll    = links.length > 6 ? `\n      <a class="view-all" href="/links/">View all</a>` : '';
   const linksSection = `    <details class="links-section" open>
-      <summary><span class="about-arrow">›</span> Links of Interest</summary>
+      <summary><span class="about-arrow">›</span> Other's Writings</summary>
       <div class="home-links-list">
 ${linkItems}${viewAll}
       </div>
     </details>`;
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${linksSection}`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Things I've Written</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${linksSection}`,
   });
 }
 
