@@ -5,8 +5,10 @@
  * a new entry to content/links.json in the GitHub repo.
  *
  * Email format:
- *   Subject: Page title (used as link title; "Fwd:"/"Re:" stripped)
- *   Body:    First URL found is the link. All other text is commentary.
+ *   Subject: your commentary (optional)
+ *   Body:    the URL
+ *
+ * The page title is fetched automatically from the URL.
  *
  * Secrets required (set via Cloudflare dashboard):
  *   GITHUB_TOKEN  — personal access token with repo scope
@@ -14,58 +16,130 @@
  * No npm dependencies — paste directly into the Cloudflare dashboard.
  */
 
-const GITHUB_OWNER = 'trevoragilbert';
-const GITHUB_REPO  = 'trevoragilbert.github.io';
-const GITHUB_FILE  = 'content/links.json';
-const GITHUB_API   = 'https://api.github.com';
+const GITHUB_OWNER   = 'trevoragilbert';
+const GITHUB_REPO    = 'trevoragilbert.github.io';
+const GITHUB_FILE    = 'content/links.json';
+const GITHUB_API     = 'https://api.github.com';
+const ALLOWED_SENDER = 'trevoragilbert@gmail.com';
 
 // ── Email parsing ───────────────────────────────────────────────────────────
 
-function parseRawEmail(raw) {
-  // Split headers from body at the first double CRLF (or LF)
+function decodeQuotedPrintable(str) {
+  return str
+    .replace(/=\r?\n/g, '')           // soft line breaks
+    .replace(/=([0-9A-Fa-f]{2})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+}
+
+function extractPlainText(raw) {
+  // Split at first double newline to get headers + body
   const splitAt = raw.search(/\r?\n\r?\n/);
-  const headerText = splitAt !== -1 ? raw.slice(0, splitAt) : raw;
-  let body        = splitAt !== -1 ? raw.slice(splitAt).trimStart() : '';
+  if (splitAt === -1) return raw;
 
-  // Extract subject from headers
-  const subjectMatch = headerText.match(/^Subject:\s*(.+)$/mi);
-  const rawSubject   = subjectMatch ? subjectMatch[1].trim() : '';
-  const subject      = rawSubject.replace(/^(fwd?|re):\s*/i, '').trim();
+  const headerText = raw.slice(0, splitAt);
+  let body = raw.slice(splitAt + 2).trimStart();
 
-  // Handle multipart — find the text/plain part
-  const boundaryMatch = headerText.match(/boundary="?([^";\r\n]+)"?/i);
+  // Check content-transfer-encoding on the outer message
+  const outerEncoding = (headerText.match(/^Content-Transfer-Encoding:\s*(\S+)/mi) || [])[1] || '';
+
+  // Handle multipart — recurse into the text/plain part
+  const boundaryMatch = headerText.match(/boundary=(?:"([^"]+)"|(\S+))/i);
   if (boundaryMatch) {
-    const boundary = boundaryMatch[1].trim();
-    const parts    = body.split(new RegExp('--' + escapeRegex(boundary)));
+    const boundary = (boundaryMatch[1] || boundaryMatch[2]).trim();
+    const parts = body.split(new RegExp('--' + escapeRegex(boundary)));
+
     for (const part of parts) {
-      if (/content-type:\s*text\/plain/i.test(part)) {
-        const partSplit = part.search(/\r?\n\r?\n/);
-        if (partSplit !== -1) {
-          body = part.slice(partSplit).trimStart();
-          break;
-        }
+      const partSplit = part.search(/\r?\n\r?\n/);
+      if (partSplit === -1) continue;
+
+      const partHeaders = part.slice(0, partSplit);
+      const partBody    = part.slice(partSplit + 2).trimStart();
+
+      if (!/content-type:\s*text\/plain/i.test(partHeaders)) continue;
+
+      const enc = (partHeaders.match(/^Content-Transfer-Encoding:\s*(\S+)/mi) || [])[1] || '';
+      if (/base64/i.test(enc)) {
+        return atob(partBody.replace(/\s+/g, ''));
+      }
+      if (/quoted-printable/i.test(enc)) {
+        return decodeQuotedPrintable(partBody);
+      }
+      return partBody;
+    }
+
+    // No text/plain found — try text/html as fallback
+    for (const part of parts) {
+      const partSplit = part.search(/\r?\n\r?\n/);
+      if (partSplit === -1) continue;
+      const partHeaders = part.slice(0, partSplit);
+      const partBody    = part.slice(partSplit + 2).trimStart();
+      if (/content-type:\s*text\/html/i.test(partHeaders)) {
+        return partBody.replace(/<[^>]+>/g, ' ');
       }
     }
   }
 
-  // Strip quoted reply lines and common email trailers
-  body = body
-    .split('\n')
-    .filter(line => !line.startsWith('>'))
-    .join('\n')
-    .replace(/^[-_]{3,}.*$/m, '') // signature divider
-    .trim();
+  // Single-part body
+  if (/base64/i.test(outerEncoding)) {
+    return atob(body.replace(/\s+/g, ''));
+  }
+  if (/quoted-printable/i.test(outerEncoding)) {
+    return decodeQuotedPrintable(body);
+  }
+  return body;
+}
 
-  return { subject, body };
+function cleanBody(text) {
+  return text
+    .split('\n')
+    .filter(line => !line.startsWith('>'))   // quoted reply lines
+    .join('\n')
+    // common mobile/webmail footers
+    .replace(/^(sent from my |get outlook for|sent via |this email was sent).*/im, '')
+    .replace(/^[-_*]{3,}\s*$/m, '')          // signature dividers
+    .replace(/\r/g, '')
+    .trim();
+}
+
+function extractUrl(text) {
+  const match = text.match(/https?:\/\/[^\s"<>[\]]+/);
+  if (!match) return null;
+  return match[0].replace(/[.,;!?)'"\]]+$/, '');
 }
 
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// ── Main handler ────────────────────────────────────────────────────────────
+function parseEmail(raw) {
+  const splitAt = raw.search(/\r?\n\r?\n/);
+  const headerText = splitAt !== -1 ? raw.slice(0, splitAt) : raw;
 
-const ALLOWED_SENDER = 'trevoragilbert@gmail.com';
+  // Subject → commentary
+  const subjectRaw = (headerText.match(/^Subject:\s*(.+)$/mi) || [])[1] || '';
+  const commentary = subjectRaw
+    .replace(/=\?[^?]+\?[BQ]\?[^?]+\?=/gi, '') // encoded-word (best-effort strip)
+    .replace(/^(fwd?|re):\s*/i, '')
+    .trim() || null;
+
+  // Body → URL
+  const body = cleanBody(extractPlainText(raw));
+  const url = extractUrl(body) || extractUrl(subjectRaw);
+
+  return { url, commentary };
+}
+
+async function fetchPageTitle(url) {
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    const html = await res.text();
+    const match = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+    return match ? match[1].trim() : null;
+  } catch {
+    return null;
+  }
+}
+
+// ── Main handler ────────────────────────────────────────────────────────────
 
 export default {
   async email(message, env) {
@@ -75,22 +149,21 @@ export default {
     }
 
     const rawText = await new Response(message.raw).text();
-    const { subject, body } = parseRawEmail(rawText);
+    const { url, commentary } = parseEmail(rawText);
 
-    // Extract first URL from body
-    const urlMatch = body.match(/https?:\/\/[^\s"<>]+/);
-    if (!urlMatch) {
-      console.error('No URL found in email body — ignoring');
+    console.log('Parsed — url:', url, '| commentary:', commentary);
+
+    if (!url) {
+      console.error('No URL found in email — ignoring');
       return;
     }
-    const url = urlMatch[0].replace(/[.,;!?)]+$/, ''); // strip trailing punctuation
 
-    // Commentary: body with URL removed, whitespace collapsed
-    const commentary = body.replace(url, '').replace(/\s+/g, ' ').trim() || null;
+    const pageTitle = await fetchPageTitle(url);
+    console.log('Fetched title:', pageTitle);
 
     const newEntry = {
       url,
-      title: subject || url,
+      title: pageTitle || url,
       commentary,
       date: new Date().toISOString().slice(0, 10), // YYYY-MM-DD
     };
@@ -106,7 +179,6 @@ export default {
 
     const fileUrl = `${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
 
-    // Fetch current links.json
     const fileRes = await fetch(fileUrl, { headers: ghHeaders });
     if (!fileRes.ok) {
       throw new Error(`GitHub GET failed: ${fileRes.status} ${await fileRes.text()}`);
@@ -114,12 +186,10 @@ export default {
     const fileData = await fileRes.json();
     const existing = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
 
-    // Prepend new entry (newest first) and encode
     const updated = [newEntry, ...existing];
     const encoded = btoa(encodeURIComponent(JSON.stringify(updated, null, 2) + '\n')
       .replace(/%([0-9A-F]{2})/g, (_, p) => String.fromCharCode(parseInt(p, 16))));
 
-    // Commit
     const commitRes = await fetch(fileUrl, {
       method: 'PUT',
       headers: { ...ghHeaders, 'Content-Type': 'application/json' },
