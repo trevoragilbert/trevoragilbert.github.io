@@ -157,7 +157,7 @@ function homeLinkItem(link) {
   const domain  = (() => { try { return new URL(link.url).hostname.replace(/^www\./, ''); } catch(e) { return ''; } })();
   const label   = link.commentary || link.title;
   return `    <section class="home-link-item">
-      <a href="${link.url}">${label}</a><a href="${link.url}" class="link-domain">${domain}</a><time datetime="${link.date}">${dateStr}</time>
+      <a href="${link.url}">${label}</a><time datetime="${link.date}">${dateStr}</time>
     </section>`;
 }
 
