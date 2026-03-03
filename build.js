@@ -154,17 +154,17 @@ function linksPage(links) {
 
 function homePage(posts) {
   const postItems = posts.map(homeListItem).join('\n');
-  const projects = `    <details class="projects-section" open>
-      <summary><span class="about-arrow">›</span> Projects</summary>
+  const linksSection = `    <details class="links-section" open>
+      <summary><span class="about-arrow">›</span> Links of Interest</summary>
       <div class="post-list">
     <section class="home-list-item">
-      <a href="/links/">Links of Interest</a>
+      <a href="/links/">View all links</a>
     </section>
       </div>
     </details>`;
   return baseTemplate({
     title: '',
-    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${projects}`,
+    content: `${BIO}\n    <details class="writings-section" open>\n      <summary><span class="about-arrow">›</span> Writings</summary>\n      <div class="post-list">\n${postItems}\n      </div>\n    </details>\n${linksSection}`,
   });
 }
 

@@ -185,7 +185,7 @@ h2, h3, h4, h5, h6 {
 
 /* ── Projects section (collapsible) ── */
 
-.projects-section summary {
+.links-section summary {
   cursor: pointer;
   font-size: 1.2rem;
   list-style: none;
@@ -193,15 +193,15 @@ h2, h3, h4, h5, h6 {
   margin-bottom: 0.75em;
 }
 
-.projects-section summary::-webkit-details-marker {
+.links-section summary::-webkit-details-marker {
   display: none;
 }
 
-.projects-section summary::marker {
+.links-section summary::marker {
   display: none;
 }
 
-.projects-section[open] .about-arrow {
+.links-section[open] .about-arrow {
   transform: rotate(90deg);
 }
 
