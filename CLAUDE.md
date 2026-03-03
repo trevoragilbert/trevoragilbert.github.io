@@ -48,3 +48,10 @@ HTML templates are string literals inside `build.js` (`baseTemplate`, `BIO`, `ho
 ## Deployment
 
 Push to `main` → GitHub Actions runs `node build.js` → deploys `docs/` to GitHub Pages. The workflow is at `.github/workflows/deploy.yml`. Since `docs/` is also committed, the build output is always in sync with the repo.
+
+## Branching
+
+- **`main`** — production. Pushes here trigger the GitHub Actions deploy to GitHub Pages.
+- **`staging`** — for testing changes before they go live. Pushes here do NOT trigger deployment. Test locally with `node build.js`, then merge to `main` when ready.
+
+Workflow: make changes on `staging` → run `node build.js` → verify locally → merge to `main` → push `main` to deploy.
