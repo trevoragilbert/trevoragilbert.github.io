@@ -235,9 +235,14 @@ h2, h3, h4, h5, h6 {
 .home-link-item .link-domain {
   color: #aaa;
   font-size: 0.88em;
-  font-weight: 300;
+  font-weight: 100;
   white-space: nowrap;
   flex-shrink: 0;
+  border-bottom: none;
+}
+
+.home-link-item .link-domain:hover {
+  color: var(--maincolor);
 }
 
 .home-link-item time {
