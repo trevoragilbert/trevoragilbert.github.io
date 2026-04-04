@@ -485,10 +485,8 @@ footer {
 
 .rss-link {
   margin-left: 1rem;
-  color: var(--maincolor);
-  border-bottom: 1px solid var(--maincolor);
+  color: #666;
   text-decoration: none;
-  font-size: 0.85em;
 }
 
 svg {
