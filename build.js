@@ -94,6 +94,7 @@ ${content}
   <footer>
     <div class="footer-info">
       Copyright &copy; ${new Date().getFullYear()} Trevor Gilbert
+      <a href="/feed.xml" class="rss-link">RSS</a>
     </div>
   </footer>
 </div>

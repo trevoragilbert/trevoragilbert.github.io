@@ -483,6 +483,14 @@ footer {
   font-size: 0.9em;
 }
 
+.rss-link {
+  margin-left: 1rem;
+  color: var(--maincolor);
+  border-bottom: 1px solid var(--maincolor);
+  text-decoration: none;
+  font-size: 0.85em;
+}
+
 svg {
   max-height: 15px;
 }
