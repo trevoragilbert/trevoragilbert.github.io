@@ -13,7 +13,7 @@ Other objects are also important, but I don’t put as much time into them. Thes
 
 Jigs and products are both important, but only one comes demanding to be trusted.
 
-I’ve found myself repeatedly coming back to this distinction as vibe coding becomes more-and-more a part of my professional and personal life. I now start projects with the question, ‘is this supposed to be a jig or a product?’ Beyond that, I think it helps make clear that our already-buckling systems of software distribution are ill prepared for the new few years.
+I’ve found myself repeatedly coming back to this distinction as vibe coding becomes more-and-more a part of my professional and personal life. I now start projects with the question, ‘is this supposed to be a jig or a product?’ Beyond that, I think it helps make clear that our already-buckling systems of software distribution are ill prepared for the next few years.
 
 ## Software as Jig
 
