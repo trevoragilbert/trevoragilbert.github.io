@@ -41,7 +41,7 @@ This extends beyond personal projects to professional work. The more something g
 
 ## The Problem with Appearances
 
-The problem is that unless you built it you can't tell if something is a jig or a product. At least, not from a distance or a screenshot. This makes it impossible to judge the quality of the software in a way that wasn’t true five years ago. You can't tell if the software should be trusted because there's no barrier to creation and no cost to reputation when something doesn't work. I have decades of muscle memory telling me to assume something is a product, even though the numbers make it clear that most things are untrustworthy jigs.
+The problem is that unless you built it you can't tell if something is a jig or a product. At least, not from a distance or a screenshot. This makes it impossible to judge the quality of the software in a way that wasn’t true five years ago. You can't tell if the software should be trusted because there's no barrier to creation and no cost to reputation when something doesn't work. I have decades of muscle memory telling me to assume something is a product, even though the numbers make it clear that most things are now untrustworthy jigs.
 
 That’s not really a problem in woodworking. Jigs are advertised as jigs, you know what you’ve built (or bought the plans for), and no one is going to confuse my $4 plywood jig with a $300 aluminum tool.
 
