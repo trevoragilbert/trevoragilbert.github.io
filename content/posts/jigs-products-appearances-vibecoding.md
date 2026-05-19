@@ -1,8 +1,8 @@
 ---
-title: "Jigs, Products, and Appearances: A Framework for Thinking about Vibe Coding"
+title: "Jigs, Product, and Appearances: The Problems of Vibe Coding Distribution"
 date: 2026-05-01
 description: "Woodworking can give us the right framework for evaluating software, even as the tide of untrustworthy products rises."
-slug: "jigs-product-appearances-vibe-coding"
+slug: "jigs-product-appearances-vibe-coding-distribution"
 ---
 
 One of my hobbies is standing in my hot garage in the summer, covered in wood shavings, sawdust, and small splinters. Some people call it torture, I call it woodworking.
